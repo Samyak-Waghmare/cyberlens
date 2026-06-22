@@ -54,6 +54,23 @@ export default function LoadingState() {
         ))}
       </ul>
       </div>
+      </div>
+
+      <div className="skeleton-container" style={{ display: "flex", flexDirection: "column", gap: "1.5rem", width: "100%", opacity: 0.5, marginTop: "2rem", position: "relative", zIndex: 1 }}>
+         {/* Verdict Banner Skeleton */}
+         <div style={{ height: "100px", borderRadius: "12px", background: "rgba(255,255,255,0.05)", animation: "pulse 1.5s infinite" }}></div>
+         
+         {/* Risk Meter and Signals Skeletons */}
+         <div style={{ display: "flex", gap: "1rem" }}>
+           <div style={{ height: "180px", flex: 1, borderRadius: "12px", background: "rgba(255,255,255,0.05)", animation: "pulse 1.5s infinite 0.2s" }}></div>
+           <div style={{ height: "180px", flex: 1, borderRadius: "12px", background: "rgba(255,255,255,0.05)", animation: "pulse 1.5s infinite 0.4s" }}></div>
+         </div>
+         
+         {/* Text block Skeleton */}
+         <div style={{ height: "20px", width: "100%", borderRadius: "4px", background: "rgba(255,255,255,0.05)", animation: "pulse 1.5s infinite 0.6s" }}></div>
+         <div style={{ height: "20px", width: "80%", borderRadius: "4px", background: "rgba(255,255,255,0.05)", animation: "pulse 1.5s infinite 0.7s" }}></div>
+      </div>
+
     </section>
   );
 }

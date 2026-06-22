@@ -31,12 +31,17 @@ export default function LogAnalyzer({ status, result, error, onAnalyze, onReset,
     return (
       <section className="tool card loading-card">
         <div className="radar-bg" />
-        <div className="loading-content">
+        <div className="loading-content" style={{ marginBottom: "2rem" }}>
           <div className="spinner" />
           <h2 className="loading-title">
             <ScrambleText text="[SOC] ANALYZING LOG VECTORS..." />
           </h2>
           <p className="loading-sub">Hunting for anomalies, injections, and unauthorized access.</p>
+        </div>
+        <div className="skeleton-container" style={{ display: "flex", flexDirection: "column", gap: "1rem", width: "100%", opacity: 0.6, marginTop: "2rem" }}>
+           <div style={{ height: "80px", borderRadius: "8px", background: "rgba(255,255,255,0.05)", animation: "pulse 1.5s infinite" }}></div>
+           <div style={{ height: "40px", width: "70%", borderRadius: "8px", background: "rgba(255,255,255,0.05)", animation: "pulse 1.5s infinite 0.2s" }}></div>
+           <div style={{ height: "120px", borderRadius: "8px", background: "rgba(255,255,255,0.05)", animation: "pulse 1.5s infinite 0.4s" }}></div>
         </div>
       </section>
     );
@@ -130,9 +135,11 @@ export default function LogAnalyzer({ status, result, error, onAnalyze, onReset,
       </div>
 
       <div className="analyzer-meta">
-        <div className="example-buttons">
-          <span className="try-label">TEST_DATA:</span>
-          <button type="button" className="example-btn" onClick={() => setValue(DUMMY_LOGS)}>Load Sample Attack Log</button>
+        <div className="example-buttons" style={{ display: "flex", alignItems: "center", gap: "0.5rem", background: "rgba(16, 185, 129, 0.1)", padding: "0.5rem 1rem", borderRadius: "8px", border: "1px solid rgba(16, 185, 129, 0.2)" }}>
+          <span className="try-label" style={{ color: "var(--accent)", fontWeight: "bold" }}>💡 Don't have one?</span>
+          <button type="button" className="example-btn" onClick={() => setValue(DUMMY_LOGS)} style={{ background: "transparent", border: "none", color: "var(--text)", textDecoration: "underline", cursor: "pointer", fontSize: "0.9rem" }}>
+            Try a demo log
+          </button>
         </div>
       </div>
 
