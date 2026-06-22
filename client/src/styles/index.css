@@ -1182,11 +1182,11 @@ kbd {
 .glitch-hover:hover { animation: textGlitch 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite; }
 
 @keyframes textGlitch {
-  0% { text-shadow: 2px 0 var(--danger), -2px 0 #00f; }
-  25% { text-shadow: -2px 0 var(--danger), 2px 0 #00f; }
-  50% { text-shadow: 2px 0 var(--danger), -2px 0 #00f; }
-  75% { text-shadow: -2px 0 var(--danger), 2px 0 #00f; }
-  100% { text-shadow: 2px 0 var(--danger), -2px 0 #00f; }
+  0% { text-shadow: 3px 0 var(--danger), -3px 0 #00f; transform: translate(1px, -1px); }
+  25% { text-shadow: -3px 0 var(--danger), 3px 0 #00f; transform: translate(-1px, 1px); }
+  50% { text-shadow: 3px 0 var(--danger), -3px 0 #00f; transform: translate(1px, 1px); }
+  75% { text-shadow: -3px 0 var(--danger), 3px 0 #00f; transform: translate(-1px, -1px); }
+  100% { text-shadow: 3px 0 var(--danger), -3px 0 #00f; transform: translate(1px, -1px); }
 }
 
 /* ============================================================
