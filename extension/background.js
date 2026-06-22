@@ -11,8 +11,8 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
     const targetUrl = info.linkUrl;
     
     // For local development, we redirect to the localhost UI.
-    // When deploying for production, update this to your live domain!
-    const baseUrl = "http://localhost:5173/analyzer";
+    // Updated for production live deployment!
+    const baseUrl = "https://cyberlens-app.vercel.app/analyzer";
     const encodedUrl = encodeURIComponent(targetUrl);
     
     chrome.tabs.create({ url: `${baseUrl}?url=${encodedUrl}` });
