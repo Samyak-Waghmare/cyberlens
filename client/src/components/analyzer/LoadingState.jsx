@@ -54,7 +54,6 @@ export default function LoadingState() {
         ))}
       </ul>
       </div>
-      </div>
 
       <div className="skeleton-container" style={{ display: "flex", flexDirection: "column", gap: "1.5rem", width: "100%", opacity: 0.5, marginTop: "2rem", position: "relative", zIndex: 1 }}>
          {/* Verdict Banner Skeleton */}
