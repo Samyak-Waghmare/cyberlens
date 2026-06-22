@@ -2,6 +2,8 @@
 
 [![Built for CyberCoders 2026](https://img.shields.io/badge/CyberCoders-2026%20Hackathon-6c63ff)](#)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](#license)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-cyberlens--app.vercel.app-brightgreen)](https://cyberlens-app.vercel.app)
+[![GitHub](https://img.shields.io/badge/GitHub-Samyak--Waghmare%2Fcyberlens-181717?logo=github)](https://github.com/Samyak-Waghmare/cyberlens)
 
 > **Detect scams. Protect privacy. Stay safe online.**
 
@@ -10,8 +12,8 @@
 ## 📋 Devpost Submission Details
 
 - **Project Name:** CyberLens (AI Scam Shield)
-- **Live Website URL:** [Insert Live URL Here]
-- **Public Source Code Repository:** [Insert GitHub/GitLab URL Here]
+- **Live Website URL:** [cyberlens-app.vercel.app](https://cyberlens-app.vercel.app)
+- **Public Source Code Repository:** [github.com/Samyak-Waghmare/cyberlens](https://github.com/Samyak-Waghmare/cyberlens)
 - **Demo Video:** [Insert YouTube/Vimeo Demo Link Here]
 
 ### 👥 Team Information
