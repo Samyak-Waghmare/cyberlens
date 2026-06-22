@@ -128,6 +128,18 @@ graph TD
 ### Privacy Checkup
 ![Privacy Checkup](assets/privacy.png)
 
+### More CyberLens Features
+![Scam Signals](assets/extra_1_scam_signals.png)
+![Privacy Checkup Demo](assets/extra_2_privacy.png)
+![Password Lab Demo](assets/extra_3_password.png)
+![SQL Injection Threat](assets/extra_4_sql_injection.png)
+![Threat Dashboard Empty](assets/extra_5_threat_empty.png)
+![File Scan Report](assets/extra_6_file_scan.png)
+![Email Scan Input](assets/extra_7_email_scan.png)
+![Report Action Panel](assets/extra_8_report_action.png)
+![All Tools Overview](assets/extra_9_all_tools.png)
+
+
 ---
 
 ## 🚀 Installation and Usage Instructions
