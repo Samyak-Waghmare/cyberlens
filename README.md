@@ -96,14 +96,24 @@ graph TD
 
 ---
 
-## 🧰 Technologies Used
+## 🧰 Technologies & APIs Used
 
-- **Frontend:** React 18 (Vite), Plain CSS (Zero UI libraries, custom Glassmorphism/Hacker aesthetics)
-- **Backend:** Node.js + Express
-- **AI Engine:** Google Gemini API (`gemini-2.5-flash`)
-- **Cybersecurity APIs:** VirusTotal Public API v3, Google Safe Browsing, URLScan.io, AbuseIPDB, HaveIBeenPwned API
+### Security & Threat Intelligence APIs
+| API | Integrated Tool | Purpose | Status |
+|-----|-----------------|---------|--------|
+| **Google Gemini AI** | Scam Analyzer, Log Analyzer | Deep context-aware threat analysis | ✅ Live |
+| **VirusTotal v3** | Scam Analyzer | URL, domain & hash reputation | ✅ Live |
+| **HaveIBeenPwned** | Password Lab | Password breach check via SHA-1 k-anonymity | ✅ Live (Client-side) |
+| **ipwho.is / ipapi.co** | Privacy Checkup | Public IP geolocation and ISP extraction | ✅ Live (Client-side) |
+| **Google Safe Browsing**| Scam Analyzer | URL blacklist check | 🔶 Configured Fallback |
+| **URLScan.io** | Scam Analyzer | DOM & domain scan history | 🔶 Configured Fallback |
+| **AbuseIPDB** | Scam Analyzer | IP abuse reputation scoring | 🔶 Configured Fallback |
+
+### Core Stack
+- **Frontend:** React 18 (Vite), React Router v7, Plain CSS (Glassmorphism/Hacker aesthetics)
+- **Backend:** Node.js + Express (Vercel Serverless Functions)
 - **Utilities:** Tesseract.js (On-device OCR), jsPDF (Report generation)
-- **Deployment:** Vercel (Configured via `vercel.json` for static frontend + serverless backend)
+- **Deployment:** Vercel (Static frontend + Node.js API)
 
 ---
 
