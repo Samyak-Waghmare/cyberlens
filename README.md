@@ -119,12 +119,18 @@ graph TD
 
 ## 📸 Screenshots
 
-> *(Participant Note: Add your screenshots here before final submission!)*
-> 
-> - [x] **Home Dashboard** - Showing the suite overview
-> - [x] **Scam Analyzer Result** - Showing a DANGEROUS verdict and AI breakdown
-> - [x] **Privacy Checkup** - Showing the digital fingerprint results
-> - [x] **Password Lab** - Showing a breached password alert
+### Home Dashboard
+![Home Dashboard](assets/home.png)
+
+### Scam Analyzer
+![Scam Analyzer - Risk Score](assets/analyzer1.png)
+![Scam Analyzer - Threat Signals](assets/analyzer2.png)
+
+### Password Lab
+![Password Lab](assets/password.png)
+
+### Privacy Checkup
+![Privacy Checkup](assets/privacy.png)
 
 ---
 
