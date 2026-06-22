@@ -15,7 +15,10 @@
 - **Demo Video:** [Insert YouTube/Vimeo Demo Link Here]
 
 ### 👥 Team Information
-- **Samyak Waghmare** (samyakwaghmare347@gmail.com) - Full Stack Developer & Cybersecurity Enthusiast
+- **Samyak Waghmare** - Full Stack Developer & Cybersecurity Enthusiast
+  - *Contributions:* Core system architecture, AI/Gemini integration, backend API development, frontend UI/UX design, and the Scam Analyzer engine.
+- **Jayesh Waghmare** - Developer & Security Researcher
+  - *Contributions:* Integration of cybersecurity APIs (VirusTotal, HaveIBeenPwned, URLScan), offline heuristic logic, security testing, and implementation of the Privacy Checkup and Password Lab tools.
 
 ---
 
