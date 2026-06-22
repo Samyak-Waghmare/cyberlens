@@ -22,11 +22,11 @@ async function request(path, options = {}) {
   return data;
 }
 
-export function analyzeInput(input) {
+export function analyzeInput(input, fileHash = null) {
   return request("/api/analyze", {
     method: "POST",
     headers: JSON_HEADERS,
-    body: JSON.stringify({ input }),
+    body: JSON.stringify({ input, fileHash }),
   });
 }
 
@@ -47,5 +47,13 @@ export function analyzeLogData(logs) {
     method: "POST",
     headers: JSON_HEADERS,
     body: JSON.stringify({ logs }),
+  });
+}
+
+export function askQuestion(context, question) {
+  return request("/api/chat", {
+    method: "POST",
+    headers: JSON_HEADERS,
+    body: JSON.stringify({ context, question }),
   });
 }

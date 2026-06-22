@@ -110,3 +110,48 @@ export async function scanUrls(urls) {
   const results = await Promise.all(limited.map(checkUrl));
   return aggregate(results);
 }
+
+/**
+ * Query VirusTotal for a file hash.
+ */
+export async function scanFileHash(hash) {
+  if (!config.virustotal.apiKey) {
+    return emptySummary("File hash provided, but VIRUSTOTAL_API_KEY is not configured.");
+  }
+
+  try {
+    const resp = await fetch(`${config.virustotal.baseUrl}/files/${hash}`, {
+      method: "GET",
+      headers: { "x-apikey": config.virustotal.apiKey },
+    });
+
+    if (!resp.ok) {
+      return emptySummary(resp.status === 404 ? "File hash not known to VirusTotal." : "VirusTotal file scan failed.");
+    }
+
+    const json = await resp.json();
+    const attrs = json?.data?.attributes || {};
+    const stats = attrs.last_analysis_stats || {};
+    const results = attrs.last_analysis_results || {};
+
+    const flaggedBy = Object.entries(results)
+      .filter(([, r]) => VT_FLAG_CATEGORIES.includes(r.category))
+      .map(([vendor]) => vendor);
+
+    const malicious = stats.malicious || 0;
+    const suspicious = stats.suspicious || 0;
+    const harmless = stats.harmless || 0;
+    const undetected = stats.undetected || 0;
+
+    return {
+      checked: true,
+      malicious,
+      suspicious,
+      total_engines: malicious + suspicious + harmless + undetected,
+      flagged_by: flaggedBy.slice(0, 5),
+      scanned_hash: hash,
+    };
+  } catch (err) {
+    return emptySummary("VirusTotal file hash check failed.");
+  }
+}

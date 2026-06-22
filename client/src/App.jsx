@@ -21,6 +21,7 @@ import LogAnalyzerPage from "./pages/LogAnalyzerPage.jsx";
 import LegalPrivacyPage from "./pages/LegalPrivacyPage.jsx";
 import LegalDisclaimerPage from "./pages/LegalDisclaimerPage.jsx";
 import LegalTermsPage from "./pages/LegalTermsPage.jsx";
+import WarningPage from "./pages/WarningPage.jsx";
 import NotFoundPage from "./pages/NotFoundPage.jsx";
 
 function ScrollToTop() {
@@ -77,6 +78,7 @@ export default function App() {
             <Route path="/privacy-policy" element={<LegalPrivacyPage />} />
             <Route path="/disclaimer" element={<LegalDisclaimerPage />} />
             <Route path="/terms"     element={<LegalTermsPage />} />
+            <Route path="/warning"   element={<WarningPage />} />
             <Route path="*"          element={<NotFoundPage />} />
           </Routes>
         </div>

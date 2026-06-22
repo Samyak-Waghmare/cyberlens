@@ -1,7 +1,7 @@
 import { VERDICTS } from "../constants/index.js";
 import { extractUrls } from "../utils/url.js";
 import { ApiError } from "../utils/ApiError.js";
-import { scanUrls } from "./virustotal.service.js";
+import { scanUrls, scanFileHash } from "./virustotal.service.js";
 import { analyzeWithGemini } from "./gemini.service.js";
 import { buildAnalysisPrompt } from "./prompt.js";
 import { checkSafeBrowsing, checkUrlScan, checkAbuseIPDB } from "./additionalApis.service.js";
@@ -25,17 +25,22 @@ function normalize(ai, vtSummary) {
  * Full analysis pipeline:
  *   1. extract URLs
  *   2. scan them with VirusTotal (best effort)
- *   3. ask Claude to analyze input + VT findings
- *   4. merge and normalize the result
+ *   3. scan file hash with VirusTotal (if provided)
+ *   4. ask AI to analyze input + VT findings
+ *   5. merge and normalize the result
  */
-export async function analyzeContent(input) {
+export async function analyzeContent(input, fileHash = null) {
   const urls = extractUrls(input);
-  const [vtSummary, safeBrowsing, urlScan, abuseIp] = await Promise.all([
+  
+  const [vtUrlsSummary, vtFileSummary, safeBrowsing, urlScan, abuseIp] = await Promise.all([
     scanUrls(urls),
+    fileHash ? scanFileHash(fileHash) : Promise.resolve(null),
     checkSafeBrowsing(urls),
     checkUrlScan(urls),
     checkAbuseIPDB(urls)
   ]);
+
+  const vtSummary = vtFileSummary && vtFileSummary.checked ? vtFileSummary : vtUrlsSummary;
 
   const additionalApis = {
     safebrowsing: safeBrowsing,

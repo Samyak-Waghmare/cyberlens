@@ -5,20 +5,20 @@
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-cyberlens--app.vercel.app-brightgreen)](https://cyberlens-app.vercel.app)
 [![GitHub](https://img.shields.io/badge/GitHub-Samyak--Waghmare%2Fcyberlens-181717?logo=github)](https://github.com/Samyak-Waghmare/cyberlens)
 
-> **Detect scams. Protect privacy. Stay safe online.**
+> **Detect scams. Defeat deepfakes. Protect your network.**
 
-*A comprehensive Cyber Safety Suite built for the CyberCoders 2026 Hackathon.*
+*The ultimate all-in-one Cyber Safety Suite built for the CyberCoders 2026 Hackathon.*
 
 ## 📋 Devpost Submission Details
 
-- **Project Name:** CyberLens (AI Scam Shield)
+- **Project Name:** CyberLens
 - **Live Website URL:** [cyberlens-app.vercel.app](https://cyberlens-app.vercel.app)
 - **Public Source Code Repository:** [github.com/Samyak-Waghmare/cyberlens](https://github.com/Samyak-Waghmare/cyberlens)
 - **Demo Video:** [Insert YouTube/Vimeo Demo Link Here]
 
 ### 👥 Team Information
 - **Samyak Waghmare** - Full Stack Developer & Security Researcher
-  - *Contributions:* Integration of cybersecurity APIs (VirusTotal, HaveIBeenPwned, URLScan), offline heuristic logic, security testing, and implementation of the Privacy Checkup and Password Lab tools.
+  - *Contributions:* Integration of cybersecurity APIs (VirusTotal, HaveIBeenPwned), offline heuristic logic, security testing, and implementation of the Privacy Checkup and Password Lab tools.
 - **Jayesh Waghmare** - Full Stack Developer & Cybersecurity Enthusiast
   - *Contributions:* Core system architecture, AI/Gemini integration, backend API development, frontend UI/UX design, and the Scam Analyzer engine.
 
@@ -26,48 +26,59 @@
 
 ## 📖 Project Description
 
-In today's interconnected world, phishing and scam messages are the #1 entry point for cyberattacks. The average person struggles to differentiate a legitimate bank email from a cloned one, cannot spot a typosquatted domain like `paypa1.com`, and has no easy way to verify if a link is on a malware blacklist. Existing "is this safe?" tools either give a meaningless safe/unsafe score without explanation or require advanced security expertise to interpret.
+In today's interconnected world, traditional antivirus software is no longer enough. The modern threat landscape includes deepfake voice calls ("vishing"), typosquatted phishing links, encrypted malware hashes, and sophisticated social engineering scams. The average person has no easy way to verify if a link, a phone call, or an email is a threat.
 
-**CyberLens (AI Scam Shield)** is a complete **Cyber Safety Suite** — six powerful security tools and a companion browser extension in one privacy-first web app that helps everyday people understand, detect, prevent, and respond to online threats. It combines deterministic industry APIs (VirusTotal's 70+ security engines, Google Safe Browsing, URLScan.io, and AbuseIPDB) with Google's Gemini AI to produce plain-English, highly actionable threat intelligence reports.
+**CyberLens** is a comprehensive **Cyber Safety Suite** that unifies multi-modal LLM reasoning with hard cybersecurity data. It combines deterministic industry APIs (VirusTotal's 70+ security engines) with **Google's Gemini 2.5 Flash AI** to produce plain-English, highly actionable threat intelligence reports. 
 
-By unifying multi-modal LLM reasoning with hard cybersecurity data, CyberLens not only blocks threats but actively educates users on *why* something is dangerous, making them harder to fool the next time.
-
----
-
-## 🛑 The Security Problem Addressed
-
-CyberLens tackles **Social Engineering and Digital Privacy Risks**, which are the hardest vulnerabilities to patch because they rely on human error. Specifically, it addresses:
-1. **Phishing & Scam Messages:** Users receive sophisticated deceptive links via SMS/Email.
-2. **Weak Credentials:** Users reuse passwords that have already been exposed in data breaches.
-3. **Hidden Digital Footprints:** Users are unaware of the tracking mechanisms (IP tracking, Canvas fingerprinting) websites use to monitor them.
-4. **Vulnerable Web Infrastructure:** Lack of easy tools to inspect website SSL/TLS and security headers.
+CyberLens doesn't just block threats; it actively educates users on *why* something is dangerous, making them harder to fool the next time.
 
 ---
 
-## ✨ Features & Implementation
+## ✨ Core Features
 
-CyberLens consists of six core tools and a companion browser extension working seamlessly together:
+We engineered CyberLens to handle the newest and most sophisticated vectors of attack:
+
+### 1. 🎤 Voice Call Analyzer
+Scams aren't just text anymore; scammers call your phone using cloned AI voices. Using the native browser `SpeechRecognition` API, users can hold their phone up to CyberLens during a suspicious call. It instantly transcribes the audio and feeds it into our Gemini AI to detect if the caller is running a known social engineering script (e.g., the "Grandparent Scam" or "IRS Scam").
+
+### 2. 🔗 Shareable Warning Links
+The best defense is community defense. If a user detects a phishing link that their friend forwarded them, how do they warn them? We built a zero-database Shareable Warning Link feature. It cryptographically encodes the AI threat analysis directly into the URL (base64). Victims can send a link back to their friend that opens a massive RED warning page explaining exactly why the original message is dangerous.
+
+### 3. 🛡️ Zero-Upload File Malware Hashing
+Uploading sensitive PDFs or Executables to a third-party server to check for malware is a massive privacy risk. CyberLens uses the browser's `crypto.subtle` API to generate a `SHA-256` hash entirely locally on the user's device. We only send the cryptographic signature to VirusTotal to check for known malware.
+
+### 4. 🤖 AI Interrogation Chatbot
+A static report isn't always enough. When a threat scan completes, users can chat directly with an AI assistant that retains the context of the threat report. Users can ask follow-up questions like: *"Why is this link dangerous?"* or *"What should I do if I already clicked it?"*
+
+### 5. 🎯 The Phishing Dojo
+CyberLens is proactive, not just reactive. We built a fully interactive, gamified simulator that trains users to spot the tell-tale signs of a scam (fake PayPal receipts, compromised Netflix accounts) before they even need to use our analyzer.
+
+---
+
+## 🧰 Full Suite Capabilities
 
 | Tool | Implementation & Features |
 |------|-------------|
-| 🛡️ **Scam Analyzer** | Paste text, URLs, or **Screenshots (on-device OCR via Tesseract.js)**. AI + VirusTotal + an offline heuristic engine explain *why* it's dangerous, generating a "Scam DNA" report and actionable recommendations. Includes Export to PDF/Word. |
-| 📊 **Threat Analysis Dashboard** | Upload raw Nginx, Apache, or firewall `.log` files. The AI acts as a SOC Analyst to identify anomalies, summarize threats, and provide remediation steps. |
-| 🔑 **Password Lab** | Strength + entropy + crack-time analysis. Checks against the **HaveIBeenPwned API using SHA-1 k-anonymity** (passwords never leave the device). |
+| 🛡️ **Scam Analyzer** | Paste Text, URLs, Emails, **Images (on-device OCR)**, **Files (Local Hashing)**, or **Voice Calls (Speech-to-Text)**. AI + VirusTotal explain *why* it's dangerous. |
+| 📡 **Live Scam Radar** | A real-time global dashboard feed streaming anonymized threat intercepts to provide situational awareness. |
+| 🔑 **Password Lab** | Strength + entropy analysis. Checks against the **HaveIBeenPwned API using SHA-1 k-anonymity** (passwords never leave the device). |
 | 🕵️ **Privacy Checkup** | A digital-footprint audit showing the fingerprint websites can silently read (GPU, canvas, IP via IPinfo, timezone) and an exposure score. |
 | 🌐 **Website Inspector** | A security-header & TLS vulnerability scan of any site, grading it **A–F** based on actual HTTP response headers. |
-| 🎯 **Phishing Dojo** | A gamified training quiz that teaches users to recognize scams themselves through interactive examples. |
-| 🧩 **Chrome Extension** | A companion extension to instantly scan any link on the internet by right-clicking it. |
 
 **Graceful Degradation:** The platform features an offline heuristic engine. If external APIs fail or rate-limit, the app degrades to local analysis, ensuring the user is never left unprotected.
 
-### 🏗️ System Architecture
+---
+
+## 🏗️ System Architecture
 
 ```mermaid
 graph TD
-    User["👤 User"] -->|Input Text/URL/Screenshot| Frontend["⚛️ React Client (Vite)"]
+    User["👤 User"] -->|Input Text/URL/Image/File/Voice| Frontend["⚛️ React Client (Vite)"]
     
-    subgraph Client-Side
+    subgraph Client-Side Local Processing
+        Frontend -->|Voice Transcription| WebSpeech["🎤 Web Speech API"]
         Frontend -->|OCR Extraction| Tesseract["📄 Tesseract.js"]
+        Frontend -->|File Hashing| WebCrypto["🔒 Web Crypto API (SHA-256)"]
         Frontend -->|Fallback Analysis| OfflineEngine["⚙️ Offline Heuristics Engine"]
         Frontend -->|Breach Check| HIBP["🔐 HaveIBeenPwned API (k-anonymity)"]
     end
@@ -96,35 +107,13 @@ graph TD
 
 ---
 
-## 🧰 Technologies & APIs Used
-
-### Security & Threat Intelligence APIs
-| API | Integrated Tool | Purpose |
-|-----|-----------------|---------|
-| **Google Gemini AI** | Scam Analyzer, Log Analyzer | Deep context-aware threat analysis |
-| **VirusTotal v3** | Scam Analyzer | URL, domain & hash reputation |
-| **HaveIBeenPwned** | Password Lab | Password breach check via SHA-1 k-anonymity |
-| **ipwho.is / ipapi.co** | Privacy Checkup | Public IP geolocation and ISP extraction |
-| **Google Safe Browsing**| Scam Analyzer | URL blacklist check |
-| **URLScan.io** | Scam Analyzer | DOM & domain scan history |
-| **AbuseIPDB** | Scam Analyzer | IP abuse reputation scoring |
-
-### Core Stack
-- **Frontend:** React 18 (Vite), React Router v7, Plain CSS (Glassmorphism/Hacker aesthetics)
-- **Backend:** Node.js + Express (Vercel Serverless Functions)
-- **Utilities:** Tesseract.js (On-device OCR), jsPDF (Report generation)
-- **Deployment:** Vercel (Static frontend + Node.js API)
-
----
-
 ## 📸 Screenshots
 
-### Home Dashboard
+### Home Dashboard & Live Radar
 ![Home Dashboard](assets/home.png)
 
 ### Scam Analyzer
-![Scam Analyzer - Risk Score](assets/analyzer1.png)
-![Scam Analyzer - Threat Signals](assets/analyzer2.png)
+![Scam Analyzer - Threat Signals](assets/analyzer1.png)
 
 ### Password Lab
 ![Password Lab](assets/password.png)
@@ -142,8 +131,8 @@ graph TD
 ### Local Setup
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/Samyak-Waghmare/ai-scam-shield.git
-   cd ai-scam-shield
+   git clone https://github.com/Samyak-Waghmare/cyberlens.git
+   cd cyberlens
    ```
 
 2. **Install dependencies:**
@@ -156,25 +145,16 @@ graph TD
    ```env
    GEMINI_API_KEY=your_gemini_api_key_here
    VIRUSTOTAL_API_KEY=your_virustotal_api_key_here
-   SAFEBROWSING_API_KEY=your_google_safe_browsing_key_here
-   URLSCAN_API_KEY=your_urlscan_api_key_here
-   ABUSEIPDB_API_KEY=your_abuseipdb_key_here
    PORT=3001
    ALLOWED_ORIGIN=http://localhost:5173
    ```
-   *(Note: The app will run without VirusTotal/SafeBrowsing/URLScan keys by gracefully falling back to AI and offline heuristics, but Gemini is required).*
+   *(Note: The app will run without a VirusTotal key by gracefully falling back to AI and offline heuristics, but Gemini is required).*
 
 4. **Run the Application:**
    ```bash
    npm run dev
    ```
    The client will start at `http://localhost:5173` and proxy API requests to the Express server at `http://localhost:3001`.
-
-### Usage
-- Open `http://localhost:5173`
-- Navigate to the **Scam Analyzer**. Paste a suspicious email or upload a screenshot, and click "Analyze Now".
-- Check your password security in the **Password Lab**.
-- Audit your browser in the **Privacy Checkup**.
 
 ---
 

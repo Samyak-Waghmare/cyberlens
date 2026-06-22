@@ -52,3 +52,37 @@ export async function analyzeWithGemini(prompt) {
     });
   }
 }
+
+/**
+ * Ask a follow-up question based on the analysis context.
+ * Returns plain text.
+ */
+export async function chatWithAnalysis(context, question) {
+  if (!hasGeminiKey()) {
+    throw ApiError.internal("GEMINI_API_KEY is not configured.");
+  }
+  const genAI = new GoogleGenerativeAI(config.gemini.apiKey);
+  const chatModel = genAI.getGenerativeModel({
+    model: config.gemini.model,
+    generationConfig: {
+      temperature: 0.7,
+      maxOutputTokens: 500,
+    },
+  });
+
+  const prompt = `You are CyberLens, a cybersecurity AI.
+The user previously scanned a suspicious input and received this analysis:
+${JSON.stringify(context, null, 2)}
+
+The user now has a follow-up question:
+"${question}"
+
+Provide a concise, helpful, and strictly text-based answer (no JSON). Do not hallucinate data not in the context.`;
+
+  try {
+    const result = await chatModel.generateContent(prompt);
+    return result.response.text();
+  } catch (err) {
+    throw ApiError.badGateway("Chat failed.", { detail: err.message });
+  }
+}

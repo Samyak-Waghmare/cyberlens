@@ -22,7 +22,7 @@ export function useAnalyzer({ onComplete } = {}) {
   const [error, setError] = useState("");
 
   const analyze = useCallback(
-    async (input) => {
+    async (input, fileHash = null) => {
       setStatus("loading");
       setError("");
       setResult(null);
@@ -31,7 +31,7 @@ export function useAnalyzer({ onComplete } = {}) {
       const startedAt = Date.now();
 
       try {
-        const data = await analyzeInput(input);
+        const data = await analyzeInput(input, fileHash);
 
         const elapsed = Date.now() - startedAt;
         if (elapsed < MIN_LOADING_MS) await delay(MIN_LOADING_MS - elapsed);

@@ -8,14 +8,17 @@ import { ApiError } from "../utils/ApiError.js";
 export function validateAnalyze(req, res, next) {
   const input = (req.body?.input || "").toString().trim();
 
-  if (input.length < MIN_INPUT_LENGTH) {
+  const fileHash = req.body?.fileHash || null;
+
+  if (input.length < MIN_INPUT_LENGTH && !fileHash) {
     return next(
       ApiError.badRequest(
-        `Input must be at least ${MIN_INPUT_LENGTH} characters long.`
+        `Input must be at least ${MIN_INPUT_LENGTH} characters long or provide a file to scan.`
       )
     );
   }
 
   req.validatedInput = input;
+  req.fileHash = fileHash;
   next();
 }

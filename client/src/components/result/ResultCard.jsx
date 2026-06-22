@@ -6,6 +6,7 @@ import ThreatSignals from "./ThreatSignals.jsx";
 import VirusTotalPanel from "./VirusTotalPanel.jsx";
 import ScamDNA from "./ScamDNA.jsx";
 import TakeAction from "./TakeAction.jsx";
+import Chatbot from "./Chatbot.jsx";
 import { RISK_BANDS } from "../../constants/verdicts.js";
 import { buildReportText } from "../../utils/report.js";
 
@@ -162,6 +163,8 @@ export default function ResultCard({ result, onReset, onToast, onRetryAI }) {
 
       {result.verdict !== "SAFE" && <TakeAction />}
 
+      {!degraded && <Chatbot context={result} />}
+
       <div className="result-actions">
         <div className="export-wrap" ref={menuRef}>
           <button
@@ -196,6 +199,21 @@ export default function ResultCard({ result, onReset, onToast, onRetryAI }) {
         </button>
         <button type="button" className="action-btn" onClick={onReset}>
           Scan Another
+        </button>
+        <button type="button" className="action-btn danger" style={{ backgroundColor: "rgba(239, 68, 68, 0.1)", color: "var(--danger)", border: "1px solid var(--danger)" }} onClick={() => {
+          const summaryData = {
+            verdict: result.verdict,
+            score: result.score,
+            summary: result.summary,
+            input: result.meta?.input?.substring(0, 500) // Truncate to fit in URL
+          };
+          const encoded = btoa(encodeURIComponent(JSON.stringify(summaryData)));
+          const url = `${window.location.origin}/warning?data=${encoded}`;
+          navigator.clipboard.writeText(url).then(() => {
+            onToast?.("Warning Link Copied! Share it with your friends.", "success");
+          });
+        }}>
+          🔗 Share Warning Link
         </button>
       </div>
     </section>
