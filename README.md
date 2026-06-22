@@ -112,8 +112,15 @@ graph TD
 ### Home Dashboard & Live Radar
 ![Home Dashboard](assets/home.png)
 
+### Threat Analysis Dashboard
+![Threat Logs Dashboard](assets/threat_logs.png)
+
 ### Scam Analyzer
 ![Scam Analyzer - Threat Signals](assets/analyzer1.png)
+
+### Shareable Warning Links (Grandma Mode)
+![Warning Page - Threat Detected](assets/warning1.png)
+![Warning Page - Action Steps](assets/warning2.png)
 
 ### Password Lab
 ![Password Lab](assets/password.png)
