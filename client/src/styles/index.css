@@ -2726,3 +2726,57 @@ kbd {
   color: var(--danger);
   border-color: var(--danger);
 }
+
+/* --- PREMIUM UI/UX UPGRADES --- */
+.navbar {
+  background: rgba(10, 10, 10, 0.75) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+}
+
+.cyber-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+.cyber-card:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 8px 30px rgba(0, 255, 102, 0.15) !important;
+}
+
+.cyber-button {
+  transition: all 0.3s ease !important;
+}
+
+.cyber-button:hover {
+  box-shadow: 0 0 15px var(--accent) !important;
+  transform: scale(1.02) !important;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+/* Page Transitions */
+@keyframes globalFadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.page-container {
+  animation: globalFadeIn 0.5s ease-out forwards;
+}
