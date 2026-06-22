@@ -152,15 +152,4 @@ graph TD
 
 ---
 
-## 🎬 Demo Video Instructions
-
-> *(Participant Note: Follow this flow for your 2-5 minute demo video)*
-1. **Introduction (30s):** State your name and briefly explain CyberLens.
-2. **Scam Analyzer (1m):** Paste a known phishing email. Show the Risk Meter, AI Explanation, VirusTotal results, and how to export the PDF report.
-3. **Password Lab (30s):** Type a weak password (like `password123`) to trigger the HaveIBeenPwned breach alert.
-4. **Privacy Checkup (30s):** Open the privacy dashboard to show real-time IP/Canvas fingerprinting extraction.
-5. **Conclusion (30s):** Summarize the impact and how it solves the Hackathon challenge.
-
----
-
 **Built with 🛡️ for the CyberCoders 2026 Hackathon.**
