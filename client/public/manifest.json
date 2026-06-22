@@ -1,0 +1,17 @@
+{
+  "manifest_version": 3,
+  "name": "CyberLens - AI Threat Analyzer",
+  "version": "1.0.0",
+  "description": "Analyze phishing emails, scams, and dangerous URLs instantly with AI and VirusTotal directly from your browser.",
+  "action": {
+    "default_popup": "index.html",
+    "default_title": "Open CyberLens"
+  },
+  "permissions": [
+    "activeTab",
+    "storage"
+  ],
+  "icons": {
+    "128": "favicon.svg"
+  }
+}
