@@ -57,7 +57,7 @@ export default function Navbar() {
             </NavLink>
           ))}
           <a
-            href="https://github.com"
+            href="https://github.com/Samyak-Waghmare/cyberlens"
             target="_blank"
             rel="noreferrer"
             className="nav-cta"
@@ -94,7 +94,7 @@ export default function Navbar() {
             </NavLink>
           ))}
           <a
-            href="https://github.com"
+            href="https://github.com/Samyak-Waghmare/cyberlens"
             target="_blank"
             rel="noreferrer"
             className="mobile-nav-link"
