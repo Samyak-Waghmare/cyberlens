@@ -78,7 +78,10 @@ graph TD
         RegexParser -->|Domain History| URLScan["🌐 URLScan.io"]
         RegexParser -->|IP Reputation| AbuseIPDB["🛡️ AbuseIPDB"]
         
-        VT & GoogleSB & URLScan & AbuseIPDB -->|Threat Intelligence Data| PromptBuilder["🏗️ Context Builder"]
+        VT -->|Threat Intelligence| PromptBuilder["🏗️ Context Builder"]
+        GoogleSB -->|Threat Intelligence| PromptBuilder
+        URLScan -->|Threat Intelligence| PromptBuilder
+        AbuseIPDB -->|Threat Intelligence| PromptBuilder
         
         PromptBuilder -->|Context-Aware Prompt| Gemini["🧠 Google Gemini 2.5 Flash"]
     end
