@@ -2,7 +2,9 @@ import { useEffect, useState } from "react";
 import { NavLink, Link } from "react-router-dom";
 
 const NAV_TOOLS = [
+  { to: "/dashboard", label: "Dashboard" },
   { to: "/analyzer", label: "Analyzer" },
+  { to: "/crypto",   label: "Web3 Scanner" },
   { to: "/password", label: "Passwords" },
   { to: "/privacy",  label: "Privacy" },
   { to: "/website",  label: "Inspector" },

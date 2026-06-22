@@ -23,6 +23,8 @@ import LegalDisclaimerPage from "./pages/LegalDisclaimerPage.jsx";
 import LegalTermsPage from "./pages/LegalTermsPage.jsx";
 import WarningPage from "./pages/WarningPage.jsx";
 import NotFoundPage from "./pages/NotFoundPage.jsx";
+import DashboardPage from "./pages/DashboardPage.jsx";
+import CryptoScanner from "./pages/CryptoScanner.jsx";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -51,6 +53,8 @@ export default function App() {
       case "/privacy-policy": document.title = "CyberLens | Privacy Policy"; break;
       case "/disclaimer": document.title = "CyberLens | Disclaimer"; break;
       case "/terms": document.title = "CyberLens | Terms of Use"; break;
+      case "/dashboard": document.title = "CyberLens | Dashboard"; break;
+      case "/crypto": document.title = "CyberLens | Crypto Scanner"; break;
       default: document.title = "CyberLens | System Error"; break;
     }
   }, [location.pathname]);
@@ -75,6 +79,8 @@ export default function App() {
             <Route path="/dojo"      element={<DojoPage />} />
             <Route path="/extension" element={<ExtensionPage />} />
             <Route path="/logs"      element={<LogAnalyzerPage onToast={showToast} />} />
+            <Route path="/dashboard" element={<DashboardPage />} />
+            <Route path="/crypto"    element={<CryptoScanner />} />
             <Route path="/privacy-policy" element={<LegalPrivacyPage />} />
             <Route path="/disclaimer" element={<LegalDisclaimerPage />} />
             <Route path="/terms"     element={<LegalTermsPage />} />
