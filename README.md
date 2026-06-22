@@ -99,15 +99,15 @@ graph TD
 ## 🧰 Technologies & APIs Used
 
 ### Security & Threat Intelligence APIs
-| API | Integrated Tool | Purpose | Status |
-|-----|-----------------|---------|--------|
-| **Google Gemini AI** | Scam Analyzer, Log Analyzer | Deep context-aware threat analysis | ✅ Live |
-| **VirusTotal v3** | Scam Analyzer | URL, domain & hash reputation | ✅ Live |
-| **HaveIBeenPwned** | Password Lab | Password breach check via SHA-1 k-anonymity | ✅ Live (Client-side) |
-| **ipwho.is / ipapi.co** | Privacy Checkup | Public IP geolocation and ISP extraction | ✅ Live (Client-side) |
-| **Google Safe Browsing**| Scam Analyzer | URL blacklist check | ✅ Live |
-| **URLScan.io** | Scam Analyzer | DOM & domain scan history | ✅ Live |
-| **AbuseIPDB** | Scam Analyzer | IP abuse reputation scoring | ✅ Live |
+| API | Integrated Tool | Purpose |
+|-----|-----------------|---------|
+| **Google Gemini AI** | Scam Analyzer, Log Analyzer | Deep context-aware threat analysis |
+| **VirusTotal v3** | Scam Analyzer | URL, domain & hash reputation |
+| **HaveIBeenPwned** | Password Lab | Password breach check via SHA-1 k-anonymity |
+| **ipwho.is / ipapi.co** | Privacy Checkup | Public IP geolocation and ISP extraction |
+| **Google Safe Browsing**| Scam Analyzer | URL blacklist check |
+| **URLScan.io** | Scam Analyzer | DOM & domain scan history |
+| **AbuseIPDB** | Scam Analyzer | IP abuse reputation scoring |
 
 ### Core Stack
 - **Frontend:** React 18 (Vite), React Router v7, Plain CSS (Glassmorphism/Hacker aesthetics)
