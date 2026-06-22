@@ -53,6 +53,37 @@ CyberLens consists of five core tools working seamlessly together:
 
 **Graceful Degradation:** The platform features an offline heuristic engine. If external APIs fail or rate-limit, the app degrades to local analysis, ensuring the user is never left unprotected.
 
+### 🏗️ System Architecture
+
+```mermaid
+graph TD
+    User["👤 User"] -->|Input Text/URL/Screenshot| Frontend["⚛️ React Client (Vite)"]
+    
+    subgraph Client-Side
+        Frontend -->|OCR Extraction| Tesseract["📄 Tesseract.js"]
+        Frontend -->|Fallback Analysis| OfflineEngine["⚙️ Offline Heuristics Engine"]
+        Frontend -->|Breach Check| HIBP["🔐 HaveIBeenPwned API (k-anonymity)"]
+    end
+    
+    Frontend -->|API Request| Backend["🚀 Express.js Server (Node.js)"]
+    
+    subgraph Server-Side API Gateway
+        Backend -->|Extract Indicators| RegexParser["🔍 URL/Domain Parser"]
+        
+        RegexParser -->|Reputation Check| VT["🦠 VirusTotal API"]
+        RegexParser -->|Safebrowsing Check| GoogleSB["🛑 Google Safe Browsing"]
+        RegexParser -->|Domain History| URLScan["🌐 URLScan.io"]
+        RegexParser -->|IP Reputation| AbuseIPDB["🛡️ AbuseIPDB"]
+        
+        VT & GoogleSB & URLScan & AbuseIPDB -->|Threat Intelligence Data| PromptBuilder["🏗️ Context Builder"]
+        
+        PromptBuilder -->|Context-Aware Prompt| Gemini["🧠 Google Gemini 2.5 Flash"]
+    end
+    
+    Gemini -->|JSON Analysis Report| Backend
+    Backend -->|Aggregated Threat Report| Frontend
+```
+
 ---
 
 ## 🧰 Technologies Used
