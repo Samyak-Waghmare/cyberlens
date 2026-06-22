@@ -29,6 +29,7 @@ export default function Footer() {
         <div className="footer-col">
           <h4>Tools</h4>
           <Link to="/analyzer">Scam Analyzer</Link>
+          <Link to="/logs">Threat Log Analyzer</Link>
           <Link to="/password">Password Lab</Link>
           <Link to="/privacy">Privacy Checkup</Link>
           <Link to="/website">Website Inspector</Link>
@@ -37,10 +38,11 @@ export default function Footer() {
 
         <div className="footer-col">
           <h4>Resources</h4>
-          <a href="https://github.com" target="_blank" rel="noreferrer">GitHub</a>
+          <a href="https://github.com/Samyak-Waghmare/cyberlens" target="_blank" rel="noreferrer">GitHub</a>
           <a href="https://www.ic3.gov/" target="_blank" rel="noreferrer">Report to IC3 (US)</a>
           <a href="https://cybercrime.gov.in/" target="_blank" rel="noreferrer">Report Cybercrime (IN)</a>
           <a href="https://www.virustotal.com" target="_blank" rel="noreferrer">VirusTotal</a>
+          <a href="https://haveibeenpwned.com" target="_blank" rel="noreferrer">HaveIBeenPwned</a>
           <a href="https://ai.google.dev" target="_blank" rel="noreferrer">Gemini API</a>
         </div>
 
@@ -57,7 +59,7 @@ export default function Footer() {
         <p>© {year} CyberLens · Built for CyberCoders 2026 Hackathon</p>
         <p className="footer-powered">
           <span>⚡</span>
-          Powered by Google Gemini AI + VirusTotal
+          Powered by Gemini AI · VirusTotal · HaveIBeenPwned · ipwho.is
         </p>
       </div>
     </footer>
