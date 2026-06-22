@@ -1,0 +1,12 @@
+{
+  "manifest_version": 3,
+  "name": "CyberLens - AI Scam Shield",
+  "version": "1.0.0",
+  "description": "Right-click any link on the web to instantly scan it for threats using AI and VirusTotal.",
+  "permissions": [
+    "contextMenus"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  }
+}
