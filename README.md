@@ -26,7 +26,7 @@
 
 In today's interconnected world, phishing and scam messages are the #1 entry point for cyberattacks. The average person struggles to differentiate a legitimate bank email from a cloned one, cannot spot a typosquatted domain like `paypa1.com`, and has no easy way to verify if a link is on a malware blacklist. Existing "is this safe?" tools either give a meaningless safe/unsafe score without explanation or require advanced security expertise to interpret.
 
-**CyberLens (AI Scam Shield)** closes that gap. It is a complete, privacy-first Cyber Safety Suite that empowers everyday users to understand, detect, prevent, and respond to online threats. It combines deterministic industry APIs (VirusTotal's 70+ security engines, Google Safe Browsing, URLScan.io, and AbuseIPDB) with Google's Gemini AI to produce plain-English, highly actionable threat intelligence reports. 
+**CyberLens (AI Scam Shield)** is a complete **Cyber Safety Suite** — six powerful security tools and a companion browser extension in one privacy-first web app that helps everyday people understand, detect, prevent, and respond to online threats. It combines deterministic industry APIs (VirusTotal's 70+ security engines, Google Safe Browsing, URLScan.io, and AbuseIPDB) with Google's Gemini AI to produce plain-English, highly actionable threat intelligence reports.
 
 By unifying multi-modal LLM reasoning with hard cybersecurity data, CyberLens not only blocks threats but actively educates users on *why* something is dangerous, making them harder to fool the next time.
 
@@ -44,15 +44,17 @@ CyberLens tackles **Social Engineering and Digital Privacy Risks**, which are th
 
 ## ✨ Features & Implementation
 
-CyberLens consists of five core tools working seamlessly together:
+CyberLens consists of six core tools and a companion browser extension working seamlessly together:
 
 | Tool | Implementation & Features |
 |------|-------------|
 | 🛡️ **Scam Analyzer** | Paste text, URLs, or **Screenshots (on-device OCR via Tesseract.js)**. AI + VirusTotal + an offline heuristic engine explain *why* it's dangerous, generating a "Scam DNA" report and actionable recommendations. Includes Export to PDF/Word. |
+| 📊 **Threat Analysis Dashboard** | Upload raw Nginx, Apache, or firewall `.log` files. The AI acts as a SOC Analyst to identify anomalies, summarize threats, and provide remediation steps. |
 | 🔑 **Password Lab** | Strength + entropy + crack-time analysis. Checks against the **HaveIBeenPwned API using SHA-1 k-anonymity** (passwords never leave the device). |
 | 🕵️ **Privacy Checkup** | A digital-footprint audit showing the fingerprint websites can silently read (GPU, canvas, IP via IPinfo, timezone) and an exposure score. |
 | 🌐 **Website Inspector** | A security-header & TLS vulnerability scan of any site, grading it **A–F** based on actual HTTP response headers. |
 | 🎯 **Phishing Dojo** | A gamified training quiz that teaches users to recognize scams themselves through interactive examples. |
+| 🧩 **Chrome Extension** | A companion extension to instantly scan any link on the internet by right-clicking it. |
 
 **Graceful Degradation:** The platform features an offline heuristic engine. If external APIs fail or rate-limit, the app degrades to local analysis, ensuring the user is never left unprotected.
 
