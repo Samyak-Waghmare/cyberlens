@@ -73,7 +73,10 @@ A gamified, interactive training simulator that teaches users to spot phishing r
 **9. 🌐 Website Inspector**  
 Scans any domain's HTTP security headers and TLS configuration, grading it A–F. Checks for missing `Content-Security-Policy`, `X-Frame-Options`, and HSTS.
 
-**10. 🧩 Chrome Extension & 🎛️ Unified Dashboard**  
+**10. 🪙 Web3 & Crypto Scanner (GoPlus API)**  
+Live, real-time scanning of smart contracts and wallet addresses. Detects honeypots, malicious proxy contracts, and phishing tokens using the deterministic GoPlus Security API.
+
+**11. 🧩 Chrome Extension & 🎛️ Unified Dashboard**  
 Scan any link on the internet instantly via right-click with the extension, while the dashboard aggregates all intercepted threat metrics.
 
 ---
@@ -84,7 +87,7 @@ Scan any link on the internet instantly via right-click with the extension, whil
 - **UX & Accessibility:** Fully WCAG AA compliant. Maintains a strict >13:1 contrast ratio (no translucent glassmorphism text readability risks). Features full Mobile-First Responsive Design, Screen Reader Support (aria-labels), Semantic HTML, and Keyboard Navigation Focus States.
 - **Backend:** Node.js, Express — secured with `helmet` (HTTP security headers) and `express-rate-limit` (DDoS/quota protection), strict payload validation, origin-locked CORS
 - **AI Engine:** Google Gemini 2.5 Flash API
-- **Cybersecurity APIs:** VirusTotal API · Google Safe Browsing API · URLScan.io API · AbuseIPDB API · HaveIBeenPwned API · IPinfo API
+- **Cybersecurity APIs:** VirusTotal API · Google Safe Browsing API · URLScan.io API · AbuseIPDB API · HaveIBeenPwned API · IPinfo API · GoPlus Security API
 - **Browser APIs:** Web Speech API (`SpeechRecognition`) · Web Crypto API (`crypto.subtle` — SHA-256 + SHA-1)
 - **On-Device ML:** Tesseract.js (OCR — extracts text from uploaded screenshots/images)
 - **Browser Extension:** Chrome Extension API
@@ -102,6 +105,7 @@ Scan any link on the internet instantly via right-click with the extension, whil
 | 🔑 **Password Lab** | Entropy + strength analysis + breach check via SHA-1 k-anonymity. | HaveIBeenPwned · Web Crypto |
 | 🕵️ **Privacy Checkup** | Full browser/OS/network fingerprint exposure audit. | IPinfo · Canvas API · Navigator API |
 | 🌐 **Website Inspector** | HTTP security header & TLS scan; grades sites A–F. | Node.js HTTPS |
+| 🪙 **Web3 Scanner** | Live smart contract & token vulnerability auditing. | GoPlus Security API |
 | 🤖 **AI Chatbot** | Context-aware follow-up chat after any scan. | Gemini API |
 | 🎯 **Phishing Dojo** | Gamified phishing awareness training simulator. | React |
 | 🧩 **Chrome Extension** | Instant link scanning from any webpage context menu. | Chrome Extension API |
