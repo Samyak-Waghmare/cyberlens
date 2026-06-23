@@ -112,11 +112,6 @@ export default function LogAnalyzer({ status, result, error, onAnalyze, onReset,
 
   return (
     <section className="analyzer card">
-      <div className="tool-head">
-        <h2 className="tool-title">Threat Analysis Dashboard</h2>
-        <p className="tool-sub">Upload raw Nginx, Apache, firewall, or application logs. Our AI acts as a SOC Analyst to identify attacks, summarize threats, and provide remediation steps.</p>
-      </div>
-
       <div className="textarea-wrap" style={{ marginTop: "1.5rem" }}>
         <textarea
           className="analyzer-textarea"

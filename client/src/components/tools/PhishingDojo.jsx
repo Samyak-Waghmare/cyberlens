@@ -56,14 +56,6 @@ export default function PhishingDojo() {
 
   return (
     <section className="tool card" id="scanner">
-      <div className="tool-head">
-        <h2 className="tool-title">🎯 Phishing Dojo</h2>
-        <p className="tool-sub">
-          Real scams hide in plain sight. Decide whether each message is a scam or legit, and
-          learn the tell-tale signs.
-        </p>
-      </div>
-
       <div className="dojo-bar">
         <span>Round {round + 1} / {total}</span>
         <span className="dojo-points">Score: {score}</span>
