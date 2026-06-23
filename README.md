@@ -222,7 +222,7 @@ ABUSEIPDB_API_KEY=your_abuseipdb_key_here
 PORT=3001
 ALLOWED_ORIGIN=http://localhost:5173
 ```
-> The app runs without all keys — it gracefully falls back to Gemini + offline heuristics. Only the Gemini API key is required.
+
  
 4. **Run:**
 ```bash
