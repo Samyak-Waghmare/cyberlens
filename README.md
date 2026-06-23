@@ -17,7 +17,7 @@
 - **Project Name:** CyberLens: AI Scam Shield
 - **Live Website URL:** [cyberlens-app.vercel.app](https://cyberlens-app.vercel.app)
 - **Public Source Code Repository:** [github.com/Samyak-Waghmare/cyberlens](https://github.com/Samyak-Waghmare/cyberlens)
-- **Demo Video:** [YOUR_DEMO_VIDEO_LINK_HERE]
+- **Demo Video:** [https://youtu.be/C-kvfOerBbg](https://youtu.be/C-kvfOerBbg)
 
 ### 👥 Team Information
 
