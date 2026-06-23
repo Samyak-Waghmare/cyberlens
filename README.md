@@ -67,7 +67,7 @@ CyberLens was built entirely from scratch for the CyberCoders 2026 Hackathon usi
 - **Frontend**: React, Vite, Vanilla CSS (Glassmorphism & Custom Animations)
 - **Backend**: Node.js, Express
 - **AI Engine**: Google Gemini 2.5 Flash API
-- **Cybersecurity Data**: VirusTotal API, HaveIBeenPwned API, IPinfo
+- **Cybersecurity Data**: VirusTotal API, Google Safe Browsing API, URLScan API, AbuseIPDB API, HaveIBeenPwned API, IPinfo API
 - **Native Browser APIs**: Web Speech API (`SpeechRecognition`), Web Crypto API (`crypto.subtle`)
 
 ---
@@ -122,6 +122,11 @@ graph TD
     
     Gemini -->|JSON Analysis Report| Backend
     Backend -->|Aggregated Threat Report| Frontend
+    
+    subgraph New Interfaces
+        Frontend -->|Smart Contract Input| Web3["🪙 Web3 & Crypto Scanner"]
+        Frontend -->|Global Metrics Feed| Dashboard["🎛️ Unified Security Dashboard"]
+    end
 ```
 
 ---
