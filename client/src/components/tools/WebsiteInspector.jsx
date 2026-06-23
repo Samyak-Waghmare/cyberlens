@@ -28,14 +28,6 @@ export default function WebsiteInspector({ onToast }) {
 
   return (
     <section className="tool card" id="scanner">
-      <div className="tool-head">
-        <h2 className="tool-title">🌐 Website Inspector</h2>
-        <p className="tool-sub">
-          Scan any website's HTTP security headers and TLS setup, then get a graded report —
-          the same checks a security auditor runs first.
-        </p>
-      </div>
-
       <div className="pw-field">
         <input
           className="pw-input"

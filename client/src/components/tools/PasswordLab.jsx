@@ -50,14 +50,6 @@ export default function PasswordLab({ onToast }) {
 
   return (
     <section className="tool card" id="scanner">
-      <div className="tool-head">
-        <h2 className="tool-title">🔑 Password Lab</h2>
-        <p className="tool-sub">
-          Test a password's strength and check if it has leaked in a data breach — all
-          processed privately in your browser.
-        </p>
-      </div>
-
       <div className="pw-field">
         <input
           className="pw-input"

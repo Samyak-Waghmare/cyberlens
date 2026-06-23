@@ -27,14 +27,6 @@ export default function PrivacyCheckup() {
 
   return (
     <section className="tool card" id="scanner">
-      <div className="tool-head">
-        <h2 className="tool-title">🕵️ Privacy Checkup</h2>
-        <p className="tool-sub">
-          This is what any website can silently learn about you the moment you visit —
-          your "digital fingerprint." The more unique it is, the easier you are to track.
-        </p>
-      </div>
-
       <div className="privacy-score" style={{ borderColor: verdict.color }}>
         <div className="ps-num" style={{ color: verdict.color }}>{fp.score}</div>
         <div className="ps-body">
