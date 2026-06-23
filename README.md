@@ -28,7 +28,7 @@
 
 In today's interconnected world, traditional antivirus software is no longer enough. The modern threat landscape includes deepfake voice calls ("vishing"), typosquatted phishing links, encrypted malware hashes, and sophisticated social engineering scams. The average person has no easy way to verify if a link, a phone call, or an email is a threat.
 
-**CyberLens** is a comprehensive **Cyber Safety Suite** that unifies multi-modal LLM reasoning with hard cybersecurity data. It combines deterministic industry APIs (VirusTotal's 70+ security engines) with **Google's Gemini 2.5 Flash AI** to produce plain-English, highly actionable threat intelligence reports. 
+**CyberLens** is a comprehensive **Cyber Safety Suite** that unifies multi-modal LLM reasoning with hard cybersecurity data. It combines deterministic industry APIs (including VirusTotal's 70+ security engines, Google Safe Browsing, URLScan, AbuseIPDB, and HaveIBeenPwned) with **Google's Gemini 2.5 Flash AI** to produce plain-English, highly actionable threat intelligence reports. 
 
 CyberLens doesn't just block threats; it actively educates users on *why* something is dangerous, making them harder to fool the next time.
 
@@ -69,6 +69,7 @@ CyberLens was built entirely from scratch for the CyberCoders 2026 Hackathon usi
 - **AI Engine**: Google Gemini 2.5 Flash API
 - **Cybersecurity Data**: VirusTotal API, Google Safe Browsing API, URLScan API, AbuseIPDB API, HaveIBeenPwned API, IPinfo API
 - **Native Browser APIs**: Web Speech API (`SpeechRecognition`), Web Crypto API (`crypto.subtle`)
+- **Other Intelligence**: Tesseract.js (On-Device OCR Engine)
 
 ---
 
@@ -76,7 +77,7 @@ CyberLens was built entirely from scratch for the CyberCoders 2026 Hackathon usi
 
 | Tool | Implementation & Features | APIs & Tech Used |
 |------|-------------|------------------|
-| 🛡️ **Scam Analyzer** | Paste Text, URLs, Emails, Images, Files, or Voice Calls. AI explains *why* it's dangerous. | `Gemini API`, `VirusTotal API`, `Web Speech`, `Web Crypto` |
+| 🛡️ **Scam Analyzer** | Paste Text, URLs, Emails, Images, Files, or Voice Calls. AI explains *why* it's dangerous. | `Gemini API`, `VirusTotal`, `Google Safe Browsing`, `URLScan`, `AbuseIPDB`, `Web Speech`, `Web Crypto`, `Tesseract OCR` |
 | 📡 **Live Scam Radar** | A real-time global dashboard feed streaming anonymized threat intercepts. | `Express`, `React` |
 | 🔑 **Password Lab** | Strength + entropy analysis. Checks known data breaches using SHA-1 k-anonymity. | `HaveIBeenPwned API`, `Web Crypto` |
 | 🕵️ **Privacy Checkup** | A digital-footprint audit showing the fingerprint websites can silently read. | `IPinfo API`, `Canvas/Navigator API` |
@@ -188,10 +189,13 @@ graph TD
    ```env
    GEMINI_API_KEY=your_gemini_api_key_here
    VIRUSTOTAL_API_KEY=your_virustotal_api_key_here
+   SAFEBROWSING_API_KEY=your_google_safe_browsing_key_here
+   URLSCAN_API_KEY=your_urlscan_api_key_here
+   ABUSEIPDB_API_KEY=your_abuseipdb_key_here
    PORT=3001
    ALLOWED_ORIGIN=http://localhost:5173
    ```
-   *(Note: The app will run without a VirusTotal key by gracefully falling back to AI and offline heuristics, but Gemini is required).*
+   *(Note: The app will run without external intelligence keys by gracefully falling back to AI and offline heuristics, but Gemini is required).*
 
 4. **Run the Application:**
    ```bash
