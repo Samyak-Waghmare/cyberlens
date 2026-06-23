@@ -19,8 +19,8 @@ export default function Hero() {
       </h1>
 
       <p className="hero-subtitle">
-        Five security tools in one — scam analysis, password &amp; breach checks,
-        a privacy audit, a website scanner, and phishing training.{" "}
+        The ultimate cybersecurity suite — AI scam analysis, Web3 honeypot detection,
+        global threat radar, password breach checks, and deep privacy audits.{" "}
         <em>Free, private, no login.</em>
       </p>
 

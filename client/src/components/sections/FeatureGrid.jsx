@@ -54,9 +54,25 @@ const TOOLS = [
     id: "logs",
     href: "/logs",
     icon: "📊",
-    label: "Threat Dashboard",
+    label: "Log Analyzer",
     desc: "Upload raw server logs for AI-driven threat hunting and remediation steps.",
     color: "#eab308",
+  },
+  {
+    id: "web3",
+    href: "/web3",
+    icon: "🪙",
+    label: "Web3 Scanner",
+    desc: "Simulate smart contract decompilation to detect crypto honeypots and drainers.",
+    color: "#14b8a6",
+  },
+  {
+    id: "dashboard",
+    href: "/dashboard",
+    icon: "🎛️",
+    label: "Command Center",
+    desc: "A live, global dashboard streaming real-time threat intercepts and system metrics.",
+    color: "#f97316",
   },
 ];
 
@@ -65,7 +81,7 @@ export default function FeatureGrid() {
     <section className="feature-grid-section" id="tools">
       <div className="section-head">
         <span className="section-eyebrow">The Suite</span>
-        <h2 className="section-title">Five tools. One mission.</h2>
+        <h2 className="section-title">Every tool you need. One mission.</h2>
         <p className="section-sub">Everything you need to stay safe in the modern threat landscape.</p>
       </div>
 
