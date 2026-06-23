@@ -14,7 +14,6 @@ const limiter = rateLimit({
 });
 
 const validateRequest = (req, res, next) => {
-  // Very basic validation to prevent payload bombs before reaching Gemini/VirusTotal
   if (req.body && req.body.input) {
     if (typeof req.body.input !== 'string') {
       return res.status(400).json({ error: "Input must be a string." });
@@ -27,18 +26,11 @@ const validateRequest = (req, res, next) => {
   next();
 };
 
-/**
- * Build and configure the Express application.
- * Kept free of side effects (no listen) so it can be imported by both the
- * local dev server and the Vercel serverless handler.
- */
 export function createApp() {
   const app = express();
-  
-  // Hardened Security Headers via Helmet
+
   app.use(helmet());
-  
-  // Rate limiting to protect API quotas
+
   app.use(limiter);
 
   app.use(cors({
