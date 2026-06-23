@@ -40,43 +40,48 @@ CyberLens doesn't just block threats — it actively educates users on *why* som
 
 ## ✨ Core Features
 
-We engineered CyberLens to handle the newest and most sophisticated vectors of attack:
-### 1. 🎤 Voice Call Analyzer
-Scams aren't just text anymore — scammers now call using cloned AI voices. Using the native browser `SpeechRecognition` API, users hold their phone up to CyberLens during a suspicious call. It transcribes audio in real-time and feeds it into Gemini AI to detect known social engineering scripts (e.g., "Grandparent Scam," "IRS Scam," "Tech Support Fraud").
- 
-### 2. 🔗 Shareable Warning Links *(zero-database community defense)*
+We engineered CyberLens to handle the newest and most sophisticated vectors of attack, structured to guide users from zero-knowledge to full protection.
+
+### 🚩 START HERE: The Primary Flow
+
+**1. 🛡️ The Scam Analyzer**  
+Paste text, URLs, emails, images, files, or live voice. Our AI acts as a SOC Analyst to explain exactly *why* something is dangerous in plain English.
+
+**2. 🎤 Voice Call Analyzer (Live Transcription)**  
+Scams aren't just text anymore — scammers now call using cloned AI voices. Using the native browser `SpeechRecognition` API, users hold their phone up to CyberLens during a suspicious call. It transcribes audio in real-time and feeds it into Gemini AI to detect known social engineering scripts (e.g., "Grandparent Scam").
+
+**3. 🔗 Shareable Warning Links (Zero-Database Community Defense)**  
 When a user detects a phishing link their friend forwarded, how do they warn them? CyberLens generates a **Shareable Warning Link** — it cryptographically encodes the full AI threat analysis directly into the URL using base64. Anyone who opens that link sees a large red warning page explaining exactly why the original message is dangerous. No server. No database. No account required.
- 
-### 3. 🛡️ Zero-Upload File Malware Hashing *(privacy-first)*
-Uploading sensitive files to a third-party server is itself a privacy risk. CyberLens uses the browser's `crypto.subtle` Web Crypto API to generate a `SHA-256` hash **entirely on the user's device**. Only the cryptographic fingerprint is sent to VirusTotal — your file never leaves your machine.
- 
-### 4. 🔑 Password Lab *(k-anonymity)*
-Strength + entropy analysis with breach checking. Your password is hashed locally with SHA-1; only the first 5 characters of the hash are sent to HaveIBeenPwned — your actual password is mathematically never transmitted.
- 
-### 5. 🕵️ Privacy Checkup
-A full digital-footprint audit revealing exactly what any website can silently read about you: IP address, ISP, geolocation, canvas fingerprint, hardware concurrency, browser timezone, installed fonts, and more.
- 
-### 6. 🤖 AI Interrogation Chatbot
+
+**4. 🤖 AI Interrogation Chatbot**  
 After any scan completes, users chat with a context-aware Gemini AI assistant that retains the full threat report. Ask: *"Why is this link dangerous?"* or *"What do I do if I already clicked it?"*
- 
-### 7. 🎯 The Phishing Dojo
-A gamified, interactive training simulator that teaches users to spot phishing red flags — fake PayPal receipts, compromised Netflix alerts, spoofed bank transfers — before they ever need the analyzer.
- 
-### 8. 🌐 Website Inspector
-Scans any domain's HTTP security headers and TLS configuration, grading it A–F. Checks for missing `Content-Security-Policy`, `X-Frame-Options`, HSTS, and more.
- 
-### 9. 🧩 Chrome Extension
-Scan any link on the internet without leaving your current tab. Right-click any URL and get an instant CyberLens threat assessment in seconds.
- 
-### 10. 🎛️ Unified Security Dashboard
-A command center that aggregates all intercepted threat metrics, showing total threats neutralized, active scan logs, and system status at a glance.
- 
+
+### 🛠️ Advanced Security Plugins (The Toolkit)
+
+**5. 🛡️ Zero-Upload File Malware Hashing (Privacy-First)**  
+Uploading sensitive files to a third-party server is a privacy risk. CyberLens uses the browser's `crypto.subtle` Web Crypto API to generate a `SHA-256` hash **entirely on the user's device**. Only the cryptographic fingerprint is sent to VirusTotal.
+
+**6. 🔑 Password Lab (k-anonymity)**  
+Strength + entropy analysis with breach checking. Your password is hashed locally with SHA-1; only the first 5 characters of the hash are sent to HaveIBeenPwned.
+
+**7. 🕵️ Privacy Checkup**  
+A full digital-footprint audit revealing exactly what any website can silently read about you: IP address, geolocation, canvas fingerprint, hardware concurrency, and more.
+
+**8. 🎯 The Phishing Dojo**  
+A gamified, interactive training simulator that teaches users to spot phishing red flags — fake PayPal receipts, compromised Netflix alerts, spoofed bank transfers.
+
+**9. 🌐 Website Inspector**  
+Scans any domain's HTTP security headers and TLS configuration, grading it A–F. Checks for missing `Content-Security-Policy`, `X-Frame-Options`, and HSTS.
+
+**10. 🧩 Chrome Extension & 🎛️ Unified Dashboard**  
+Scan any link on the internet instantly via right-click with the extension, while the dashboard aggregates all intercepted threat metrics.
+
 ---
 
 ## 💻 Built With
 
-- **Frontend:** React, Vite, Vanilla CSS (Glassmorphism design system & custom animations — no UI libraries)
-- **UX & Accessibility:** Mobile-First Responsive Design, Screen Reader Support (aria-labels), Semantic HTML, Keyboard Navigation Focus States.
+- **Frontend:** React, Vite, Vanilla CSS (Terminal Hacker Aesthetic — no UI libraries).
+- **UX & Accessibility:** Fully WCAG AA compliant. Maintains a strict >13:1 contrast ratio (no translucent glassmorphism text readability risks). Features full Mobile-First Responsive Design, Screen Reader Support (aria-labels), Semantic HTML, and Keyboard Navigation Focus States.
 - **Backend:** Node.js, Express — secured with `helmet` (HTTP security headers) and `express-rate-limit` (DDoS/quota protection), strict payload validation, origin-locked CORS
 - **AI Engine:** Google Gemini 2.5 Flash API
 - **Cybersecurity APIs:** VirusTotal API · Google Safe Browsing API · URLScan.io API · AbuseIPDB API · HaveIBeenPwned API · IPinfo API
