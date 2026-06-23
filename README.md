@@ -11,9 +11,6 @@
 >
 > 🎯 **Detection accuracy:** Caught 19/20 known phishing samples in our internal test set.
 > 🧰 **Scale:** 8 distinct security tools · 7+ integrated APIs · 1 Chrome Extension · Offline heuristic fallback engine.
->
-> 🎯 **Accuracy Impact:** Caught 19/20 known phishing emails in our test set.
-> 🧰 **Scale:** Powered by a unified architecture of 8 distinct tools and 7+ integrated security APIs.
 
 ## 📋 Devpost Submission Details
 
