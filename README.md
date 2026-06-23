@@ -61,17 +61,28 @@ A global command center that aggregates all threat metrics into a stunning, live
 
 ---
 
+## 💻 Built With
+
+CyberLens was built entirely from scratch for the CyberCoders 2026 Hackathon using:
+- **Frontend**: React, Vite, Vanilla CSS (Glassmorphism & Custom Animations)
+- **Backend**: Node.js, Express
+- **AI Engine**: Google Gemini 2.5 Flash API
+- **Cybersecurity Data**: VirusTotal API, HaveIBeenPwned API, IPinfo
+- **Native Browser APIs**: Web Speech API (`SpeechRecognition`), Web Crypto API (`crypto.subtle`)
+
+---
+
 ## 🧰 Full Suite Capabilities
 
-| Tool | Implementation & Features |
-|------|-------------|
-| 🛡️ **Scam Analyzer** | Paste Text, URLs, Emails, **Images (on-device OCR)**, **Files (Local Hashing)**, or **Voice Calls (Speech-to-Text)**. AI + VirusTotal explain *why* it's dangerous. |
-| 📡 **Live Scam Radar** | A real-time global dashboard feed streaming anonymized threat intercepts to provide situational awareness. |
-| 🔑 **Password Lab** | Strength + entropy analysis. Checks against the **HaveIBeenPwned API using SHA-1 k-anonymity** (passwords never leave the device). |
-| 🕵️ **Privacy Checkup** | A digital-footprint audit showing the fingerprint websites can silently read (GPU, canvas, IP via IPinfo, timezone) and an exposure score. |
-| 🌐 **Website Inspector** | A security-header & TLS vulnerability scan of any site, grading it **A–F** based on actual HTTP response headers. |
-| 🪙 **Web3 Scanner** | Simulates blockchain auditing to check smart contract addresses for honeypot traps, infinite minting, and locked liquidity. |
-| 🎛️ **Security Dashboard** | A unified command center providing live global threat metrics, system status, and a scrolling global threat feed. |
+| Tool | Implementation & Features | APIs & Tech Used |
+|------|-------------|------------------|
+| 🛡️ **Scam Analyzer** | Paste Text, URLs, Emails, Images, Files, or Voice Calls. AI explains *why* it's dangerous. | `Gemini API`, `VirusTotal API`, `Web Speech`, `Web Crypto` |
+| 📡 **Live Scam Radar** | A real-time global dashboard feed streaming anonymized threat intercepts. | `Express`, `React` |
+| 🔑 **Password Lab** | Strength + entropy analysis. Checks known data breaches using SHA-1 k-anonymity. | `HaveIBeenPwned API`, `Web Crypto` |
+| 🕵️ **Privacy Checkup** | A digital-footprint audit showing the fingerprint websites can silently read. | `IPinfo API`, `Canvas/Navigator API` |
+| 🌐 **Website Inspector** | A security-header & TLS vulnerability scan of any site, grading it **A–F**. | `Node.js HTTPS` |
+| 🪙 **Web3 Scanner** | Simulates blockchain auditing to check smart contracts for honeypot traps and locked liquidity. | `React`, `Simulated Web3` |
+| 🎛️ **Security Dashboard** | A unified command center providing live global threat metrics and system status. | `React`, `CSS Glassmorphism` |
 
 **Graceful Degradation:** The platform features an offline heuristic engine. If external APIs fail or rate-limit, the app degrades to local analysis, ensuring the user is never left unprotected.
 
