@@ -60,7 +60,7 @@ const TOOLS = [
   },
   {
     id: "web3",
-    href: "/web3",
+    href: "/crypto",
     icon: "🪙",
     label: "Web3 Scanner",
     desc: "Simulate smart contract decompilation to detect crypto honeypots and drainers.",
