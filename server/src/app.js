@@ -49,6 +49,10 @@ export function createApp() {
   app.use(express.json({ limit: "1mb" }));
   app.use(validateRequest);
 
+  app.get("/", (req, res) => {
+    res.json({ status: "ok", message: "CyberLens API Gateway is running" });
+  });
+
   app.use("/api", apiRoutes);
 
   app.use(notFound);
