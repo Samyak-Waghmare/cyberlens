@@ -53,6 +53,12 @@ A static report isn't always enough. When a threat scan completes, users can cha
 ### 5. 🎯 The Phishing Dojo
 CyberLens is proactive, not just reactive. We built a fully interactive, gamified simulator that trains users to spot the tell-tale signs of a scam (fake PayPal receipts, compromised Netflix accounts) before they even need to use our analyzer.
 
+### 6. 🪙 Web3 & Crypto Honeypot Scanner
+Crypto scams are financially devastating. CyberLens includes a simulated Web3 security auditor that decompiles smart contract bytecode and detects honeypot traps, rug pulls, and hidden mint functions before users connect their wallets.
+
+### 7. 🎛️ Unified Security Dashboard
+A global command center that aggregates all threat metrics into a stunning, live-updating interface. It provides users with an instant snapshot of their system status, total threats neutralized, and a scrolling feed of recent intercepts.
+
 ---
 
 ## 🧰 Full Suite Capabilities
@@ -64,6 +70,8 @@ CyberLens is proactive, not just reactive. We built a fully interactive, gamifie
 | 🔑 **Password Lab** | Strength + entropy analysis. Checks against the **HaveIBeenPwned API using SHA-1 k-anonymity** (passwords never leave the device). |
 | 🕵️ **Privacy Checkup** | A digital-footprint audit showing the fingerprint websites can silently read (GPU, canvas, IP via IPinfo, timezone) and an exposure score. |
 | 🌐 **Website Inspector** | A security-header & TLS vulnerability scan of any site, grading it **A–F** based on actual HTTP response headers. |
+| 🪙 **Web3 Scanner** | Simulates blockchain auditing to check smart contract addresses for honeypot traps, infinite minting, and locked liquidity. |
+| 🎛️ **Security Dashboard** | A unified command center providing live global threat metrics, system status, and a scrolling global threat feed. |
 
 **Graceful Degradation:** The platform features an offline heuristic engine. If external APIs fail or rate-limit, the app degrades to local analysis, ensuring the user is never left unprotected.
 
