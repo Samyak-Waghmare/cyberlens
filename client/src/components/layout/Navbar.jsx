@@ -63,6 +63,7 @@ export default function Navbar() {
             target="_blank"
             rel="noreferrer"
             className="nav-cta"
+            aria-label="GitHub repository (opens in a new tab)"
           >
             GitHub ↗
           </a>
@@ -101,6 +102,7 @@ export default function Navbar() {
             rel="noreferrer"
             className="mobile-nav-link"
             onClick={() => setMobileOpen(false)}
+            aria-label="GitHub repository (opens in a new tab)"
           >
             GitHub ↗
           </a>

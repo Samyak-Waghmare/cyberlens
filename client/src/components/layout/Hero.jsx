@@ -25,9 +25,9 @@ export default function Hero() {
       </p>
 
       <div className="hero-actions">
-        <Link to="/analyzer" className="hero-cta">
-          Start Scanning Free
-          <span className="hero-cta-arrow">→</span>
+        <Link to="/analyzer" className="hero-cta" aria-label="Start Here: Scan a Link with the Scam Analyzer">
+          Start Here: Scan a Link
+          <span className="hero-cta-arrow" aria-hidden="true">→</span>
         </Link>
         <a href="#tools" className="hero-cta-outline">
           Explore tools ↓
