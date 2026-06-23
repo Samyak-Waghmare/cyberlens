@@ -1,39 +1,40 @@
 import React, { useState } from 'react';
 import LoadingState from '../components/analyzer/LoadingState';
 import PageHeader from '../components/common/PageHeader.jsx';
+import { scanWeb3Contract } from '../services/api.js';
 
-const CryptoScanner = () => {
+const CryptoScanner = ({ onToast }) => {
   const [address, setAddress] = useState('');
   const [isScanning, setIsScanning] = useState(false);
   const [result, setResult] = useState(null);
 
-  const handleScan = (e) => {
+  const handleScan = async (e) => {
     e.preventDefault();
     if (!address) return;
     
     setIsScanning(true);
     setResult(null);
 
-    // Simulate blockchain scan
-    setTimeout(() => {
-      setIsScanning(false);
-      // Hardcoded "Honeypot" result for the demo
+    try {
+      const data = await scanWeb3Contract(address);
+      setResult(data);
+    } catch (err) {
+      if (onToast) onToast(err.message || "Failed to scan smart contract.", "error");
       setResult({
-        status: 'DANGEROUS',
-        score: 98,
+        status: "SAFE",
+        score: 0,
         contract: address,
-        name: 'PepeSafe Moon (PPSM)',
-        threats: [
-          { name: 'Hidden Mint Function', desc: 'Contract owner can mint infinite tokens, diluting value to zero.' },
-          { name: 'Sell Tax 100%', desc: 'A honeypot trap. You can buy the token, but the contract prevents you from ever selling it.' },
-          { name: 'Liquidity Not Locked', desc: 'The developer can pull all funds from the liquidity pool at any time (Rug Pull).' }
-        ]
+        name: "Unknown / Unverified Contract",
+        threats: [],
       });
-    }, 4500); // Wait 4.5 seconds to show off the loading animation
+    } finally {
+      setIsScanning(false);
+    }
   };
 
   const loadSample = () => {
-    setAddress('0x4b78... (Malicious Honeypot Contract)');
+    // A known honeypot address
+    setAddress('0xa3f2252aE795df94695029D884dBC38148e6baE1');
   };
 
   return (
@@ -85,13 +86,19 @@ const CryptoScanner = () => {
 
       {result && (
         <div className="result-container" style={{ marginTop: '2rem', maxWidth: '800px', margin: '2rem auto 0 auto' }}>
-          <div className="card" style={{ borderColor: 'var(--danger)' }}>
+          <div className="card" style={{ borderColor: result.status === 'DANGEROUS' ? 'var(--danger)' : 'var(--safe)' }}>
             <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1.5rem' }}>
-              <div style={{ fontSize: '3rem' }}>🚨</div>
+              <div style={{ fontSize: '3rem' }}>{result.status === 'DANGEROUS' ? '🚨' : '✅'}</div>
               <div>
-                <h2 style={{ color: 'var(--danger)', margin: '0 0 0.5rem 0' }}>CRITICAL THREAT DETECTED</h2>
-                <p>This smart contract contains highly malicious code signatures consistent with a Honeypot / Rug Pull.</p>
-                <div style={{ marginTop: '1rem', padding: '1rem', background: 'rgba(0,0,0,0.3)', borderLeft: '4px solid var(--danger)' }}>
+                <h2 style={{ color: result.status === 'DANGEROUS' ? 'var(--danger)' : 'var(--safe)', margin: '0 0 0.5rem 0' }}>
+                  {result.status === 'DANGEROUS' ? 'CRITICAL THREAT DETECTED' : 'NO THREATS FOUND'}
+                </h2>
+                <p>
+                  {result.status === 'DANGEROUS' 
+                    ? 'This smart contract contains highly malicious code signatures consistent with a Honeypot / Rug Pull.'
+                    : 'This contract does not currently exhibit known honeypot signatures or malicious taxes. However, always exercise caution.'}
+                </p>
+                <div style={{ marginTop: '1rem', padding: '1rem', background: 'rgba(0,0,0,0.3)', borderLeft: `4px solid ${result.status === 'DANGEROUS' ? 'var(--danger)' : 'var(--safe)'}` }}>
                   <div style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>CONTRACT NAME:</div>
                   <div style={{ fontFamily: 'monospace', fontSize: '1.1rem' }}>{result.name}</div>
                 </div>
@@ -99,17 +106,19 @@ const CryptoScanner = () => {
             </div>
           </div>
 
-          <div className="card" style={{ marginTop: '2rem' }}>
-            <h3 className="block-title" style={{ marginTop: 0 }}>AUDIT FINDINGS</h3>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginTop: '1.5rem' }}>
-              {result.threats.map((threat, index) => (
-                <div key={index} style={{ padding: '1rem', border: '1px solid rgba(239, 68, 68, 0.3)', background: 'rgba(239, 68, 68, 0.05)' }}>
-                  <h4 style={{ color: 'var(--danger)', margin: '0 0 0.5rem 0' }}>[X] {threat.name}</h4>
-                  <p style={{ margin: 0, color: 'var(--text)' }}>{threat.desc}</p>
-                </div>
-              ))}
+          {result.threats && result.threats.length > 0 && (
+            <div className="card" style={{ marginTop: '2rem' }}>
+              <h3 className="block-title" style={{ marginTop: 0 }}>AUDIT FINDINGS</h3>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginTop: '1.5rem' }}>
+                {result.threats.map((threat, index) => (
+                  <div key={index} style={{ padding: '1rem', border: '1px solid rgba(239, 68, 68, 0.3)', background: 'rgba(239, 68, 68, 0.05)' }}>
+                    <h4 style={{ color: 'var(--danger)', margin: '0 0 0.5rem 0' }}>[X] {threat.name}</h4>
+                    <p style={{ margin: 0, color: 'var(--text)' }}>{threat.desc}</p>
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
+          )}
 
           <div style={{ marginTop: '2rem', display: 'flex', justifyContent: 'center' }}>
             <button onClick={() => {setResult(null); setAddress('');}} className="action-btn">SCAN ANOTHER CONTRACT</button>

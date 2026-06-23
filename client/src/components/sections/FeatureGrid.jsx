@@ -63,7 +63,7 @@ const TOOLS = [
     href: "/crypto",
     icon: "🪙",
     label: "Web3 Scanner",
-    desc: "Simulate smart contract decompilation to detect crypto honeypots and drainers.",
+    desc: "Live GoPlus API integration to detect crypto honeypots and drainers.",
     color: "#14b8a6",
   },
   {

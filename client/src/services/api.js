@@ -57,3 +57,11 @@ export function askQuestion(context, question) {
     body: JSON.stringify({ context, question }),
   });
 }
+
+export function scanWeb3Contract(address) {
+  return request("/api/web3/scan", {
+    method: "POST",
+    headers: JSON_HEADERS,
+    body: JSON.stringify({ address }),
+  });
+}

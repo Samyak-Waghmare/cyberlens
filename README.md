@@ -82,7 +82,7 @@ CyberLens was built entirely from scratch for the CyberCoders 2026 Hackathon usi
 | 🔑 **Password Lab** | Strength + entropy analysis. Checks known data breaches using SHA-1 k-anonymity. | `HaveIBeenPwned API`, `Web Crypto` |
 | 🕵️ **Privacy Checkup** | A digital-footprint audit showing the fingerprint websites can silently read. | `IPinfo API`, `Canvas/Navigator API` |
 | 🌐 **Website Inspector** | A security-header & TLS vulnerability scan of any site, grading it **A–F**. | `Node.js HTTPS` |
-| 🪙 **Web3 Scanner** | Simulates blockchain auditing to check smart contracts for honeypot traps and locked liquidity. | `React`, `Simulated Web3` |
+| 🪙 **Web3 Scanner** | Live smart contract security scanning via GoPlus API. Detects honeypots, high taxes, and malicious owner privileges. | `GoPlus Security API`, `React` |
 | 🧩 **Chrome Extension** | Scan any link on the internet instantly without leaving your current tab. | `Browser Extension API` |
 | 🎛️ **Security Dashboard** | A unified command center providing live global threat metrics and system status. | `React`, `CSS Glassmorphism` |
 
