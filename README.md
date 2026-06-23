@@ -79,6 +79,7 @@ A command center that aggregates all intercepted threat metrics, showing total t
 ## 💻 Built With
 
 - **Frontend:** React, Vite, Vanilla CSS (Glassmorphism design system & custom animations — no UI libraries)
+- **UX & Accessibility:** Mobile-First Responsive Design, Screen Reader Support (aria-labels), Semantic HTML, Keyboard Navigation Focus States.
 - **Backend:** Node.js, Express — secured with `helmet` (HTTP security headers) and `express-rate-limit` (DDoS/quota protection), strict payload validation, origin-locked CORS
 - **AI Engine:** Google Gemini 2.5 Flash API
 - **Cybersecurity APIs:** VirusTotal API · Google Safe Browsing API · URLScan.io API · AbuseIPDB API · HaveIBeenPwned API · IPinfo API
