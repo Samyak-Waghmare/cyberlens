@@ -1,22 +1,28 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { getStats } from '../services/api.js';
 
 const DashboardPage = () => {
   const [stats, setStats] = useState({
     threatsBlocked: 14285,
-    activeScans: 34,
-    globalAlerts: 8
+    activeScans: 0,
+    globalAlerts: 8,
+    recentLogs: []
   });
 
-  // Simulate live updating numbers
+  // Fetch live updating numbers from the backend
   useEffect(() => {
-    const interval = setInterval(() => {
-      setStats(prev => ({
-        ...prev,
-        threatsBlocked: prev.threatsBlocked + Math.floor(Math.random() * 3),
-        activeScans: 20 + Math.floor(Math.random() * 20)
-      }));
-    }, 2000);
+    const fetchStats = async () => {
+      try {
+        const data = await getStats();
+        setStats(data);
+      } catch (err) {
+        console.error("Failed to fetch live stats", err);
+      }
+    };
+
+    fetchStats();
+    const interval = setInterval(fetchStats, 3000); // Poll every 3s
     return () => clearInterval(interval);
   }, []);
 
@@ -88,13 +94,17 @@ const DashboardPage = () => {
             <span className="terminal-title">global_threat_feed.log</span>
           </div>
           <div className="terminal-content" style={{ maxHeight: '200px', overflowY: 'auto' }}>
-            <div className="log-line"><span className="log-time">[14:02:45]</span> <span className="log-info">INFO:</span> Phishing URL detected from IP 45.22.11.9 - <span style={{color: 'var(--success-color)'}}>BLOCKED</span></div>
-            <div className="log-line"><span className="log-time">[14:03:12]</span> <span className="log-warn">WARN:</span> Suspicious PDF hash 8e89363e5b... submitted for analysis.</div>
-            <div className="log-line"><span className="log-time">[14:05:01]</span> <span className="log-error">CRITICAL:</span> SQL Injection attempt on /login - payload: ' OR '1'='1 - <span style={{color: 'var(--success-color)'}}>NEUTRALIZED</span></div>
-            <div className="log-line"><span className="log-time">[14:05:55]</span> <span className="log-info">INFO:</span> Web3 smart contract 0x7a25... scanned. Status: <span style={{color: 'var(--danger-color)'}}>HONEYPOT DETECTED</span></div>
-            <div className="log-line"><span className="log-time">[14:06:20]</span> <span className="log-info">INFO:</span> Password strength check performed.</div>
-            <div className="log-line"><span className="log-time">[14:07:05]</span> <span className="log-warn">WARN:</span> Multiple failed login attempts tracked from botnet proxy.</div>
-            <div className="log-line"><span className="log-time">[{new Date().toLocaleTimeString()}]</span> <span className="log-info">INFO:</span> System health check complete. All modules optimal.</div>
+            {stats.recentLogs && stats.recentLogs.length > 0 ? (
+              stats.recentLogs.map((log, i) => (
+                <div className="log-line" key={i}>
+                  <span className="log-time">[{log.time}]</span>{" "}
+                  <span className={`log-${log.type.toLowerCase()}`}>{log.type}:</span>{" "}
+                  {log.msg} - <span style={{ color: log.statusColor }}>{log.status}</span>
+                </div>
+              ))
+            ) : (
+              <div className="log-line"><span className="log-time">[{new Date().toLocaleTimeString()}]</span> <span className="log-info">INFO:</span> System health check complete. All modules optimal.</div>
+            )}
           </div>
         </div>
       </div>

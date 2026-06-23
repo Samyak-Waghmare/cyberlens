@@ -65,7 +65,7 @@ A global command center that aggregates all threat metrics into a stunning, live
 
 CyberLens was built entirely from scratch for the CyberCoders 2026 Hackathon using:
 - **Frontend**: React, Vite, Vanilla CSS (Glassmorphism & Custom Animations)
-- **Backend**: Node.js, Express
+- **Backend**: Node.js, Express (Secured with Helmet & Rate-Limiting)
 - **AI Engine**: Google Gemini 2.5 Flash API
 - **Cybersecurity Data**: VirusTotal API, Google Safe Browsing API, URLScan API, AbuseIPDB API, HaveIBeenPwned API, IPinfo API
 - **Native Browser APIs**: Web Speech API (`SpeechRecognition`), Web Crypto API (`crypto.subtle`)
@@ -84,9 +84,11 @@ CyberLens was built entirely from scratch for the CyberCoders 2026 Hackathon usi
 | 🌐 **Website Inspector** | A security-header & TLS vulnerability scan of any site, grading it **A–F**. | `Node.js HTTPS` |
 | 🪙 **Web3 Scanner** | Live smart contract security scanning via GoPlus API. Detects honeypots, high taxes, and malicious owner privileges. | `GoPlus Security API`, `React` |
 | 🧩 **Chrome Extension** | Scan any link on the internet instantly without leaving your current tab. | `Browser Extension API` |
-| 🎛️ **Security Dashboard** | A unified command center providing live global threat metrics and system status. | `React`, `CSS Glassmorphism` |
+| 🎛️ **Security Dashboard** | A unified command center streaming live, API-driven global threat metrics and intercepted logs. | `React`, `Node Memory Cache` |
 
 **Graceful Degradation:** The platform features an offline heuristic engine. If external APIs fail or rate-limit, the app degrades to local analysis, ensuring the user is never left unprotected.
+
+**Backend Hardening:** The Express API Gateway is fully secured with `helmet` for HTTP headers, strict request payload validation, and `express-rate-limit` to prevent DDoS or API quota exhaustion attacks. All external API keys are safely isolated on the backend.
 
 ---
 

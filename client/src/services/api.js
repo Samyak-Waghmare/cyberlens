@@ -65,3 +65,7 @@ export function scanWeb3Contract(address) {
     body: JSON.stringify({ address }),
   });
 }
+
+export function getStats() {
+  return request("/api/stats");
+}
